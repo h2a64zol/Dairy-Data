@@ -1,0 +1,26 @@
+name: Sync from Render
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Запускать каждый час
+  workflow_dispatch: # Для ручного запуска
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.RENDER_SSH_PRIVATE_KEY }}
+
+    - name: Sync JSON file from Render
+      run: |
+        scp user@your_render_instance:/path/to/your/changed_file.json /local/path/to/your/project/
+        git add /local/path/to/your/project/changed_file.json
+        git commit -m "Sync JSON file from Render"
+        git push origin main
