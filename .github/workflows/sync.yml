@@ -22,18 +22,24 @@ jobs:
         if ! cmp -s new_Dairy.json Dairy.json; then
           echo "Dairy data has changed"
           mv new_Dairy.json Dairy.json
-          echo "::set-output name=changes::true"
+          echo "changes=true" >> $GITHUB_ENV
         else
           echo "No changes in Dairy data"
           rm new_Dairy.json
-          echo "::set-output name=changes::false"
+          echo "changes=false" >> $GITHUB_ENV
         fi
 
-    - name: Commit changes
-      if: steps.check-for-changes.outputs.changes == 'true'
+    - name: Set up Git
+      if: env.changes == 'true'
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git fetch origin
+        git checkout main
+
+    - name: Commit changes
+      if: env.changes == 'true'
+      run: |
         git add Dairy.json
         git commit -m "Sync Dairy data"
         git push
