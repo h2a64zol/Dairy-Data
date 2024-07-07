@@ -11,12 +11,26 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3 # Обновленная версия
 
     - name: Download Dairy data
-      run: curl -o Dairy.json https://dairy-data.onrender.com
+      run: curl -o new_Dairy.json https://dairy-data.onrender.com
+
+    - name: Check for changes
+      id: check-for-changes
+      run: |
+        if ! cmp -s new_Dairy.json Dairy.json; then
+          echo "Dairy data has changed"
+          mv new_Dairy.json Dairy.json
+          echo "::set-output name=changes::true"
+        else
+          echo "No changes in Dairy data"
+          rm new_Dairy.json
+          echo "::set-output name=changes::false"
+        fi
 
     - name: Commit changes
+      if: steps.check-for-changes.outputs.changes == 'true'
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
