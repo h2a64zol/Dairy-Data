@@ -1,13 +1,1 @@
-{
-    "Dairy" : [
-  {
-    "id": 4,
-    "date": "2024-07-19",
-    "q1": "Today",
-    "q2": "I am",
-    "q3": "working",
-    "q4": "at home",
-    "q5": "i want money"
-  }
-]
-}
+{Dairy:[{"id":4,"date":"2024-07-19","q1":"Today","q2":"I am","q3":"working","q4":"at home","q5":"i want money"},{"id":5,"date":"2024-07-21","q1":"Today1","q2":"I am","q3":"working","q4":"at home","q5":"i want money","Tale":"Кероо","STale":"Апроо","RTale":"Апроо"}]}
