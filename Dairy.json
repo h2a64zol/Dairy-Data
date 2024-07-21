@@ -1,1 +1,11 @@
-{Dairy:[{"id":4,"date":"2024-07-19","q1":"Today","q2":"I am","q3":"working","q4":"at home","q5":"i want money"},{"id":5,"date":"2024-07-19","q1":"Today1","q2":"I am2","q3":"working3","q4":"at home4","q5":"i want money5","Tale":"6","STale":"7","RTale":"8"}]}
+[
+  {
+    "id": 4,
+    "date": "2024-07-19",
+    "q1": "Today",
+    "q2": "I am",
+    "q3": "working",
+    "q4": "at home",
+    "q5": "i want money"
+  }
+]
