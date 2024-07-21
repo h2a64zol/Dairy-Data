@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+[
+  {
+    "id": 4,
+    "date": "2024-07-19",
+    "q1": "Today",
+    "q2": "I am",
+    "q3": "working",
+    "q4": "at home",
+    "q5": "i want money"
+  }
+]
+=======
+{ 
+  [
+    {"id":4,
+      "date":"2024-07-19",
+      "q1":"Today",
+      "q2":"I am",
+      "q3":"working",
+      "q4":"at home",
+      "q5":"i want money"
+    }
+  ]
+}
+>>>>>>> 12d1ed23f3b3a11b1e65cd85cb48cc52a70dd9e6
