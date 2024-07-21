@@ -1,4 +1,4 @@
-git ststus
+git status
 pause
 git add .
 pause
