@@ -1,10 +1,10 @@
 git status
-pause
+rem pause
 git add .
-pause
+rem pause
 git commit -m "Change JSON"
-pause
+rem pause
 git pull
-pause
+rem pause
 git push -u origin main
-pause
+rem pause
